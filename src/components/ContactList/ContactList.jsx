@@ -1,14 +1,14 @@
 import styles from './ContactList.module.css';
 import { Notification } from 'components/Notification/Notification';
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-class ContactList extends Component {
-  render() {
-    const { contacts, removeContact } = this.props;
-    const { wrapper, text, button } = styles;
 
-    return (
-      <>
+
+const ContactList = ({ contacts, removeContact }) => {
+  const { wrapper, text, button } = styles;
+
+  return (
+    <>
         {contacts.length > 0 ? (
           <ul className={wrapper}>
             {contacts.map(contact => {
@@ -30,11 +30,12 @@ class ContactList extends Component {
           <Notification message="You don't have this contact" />
         )}
       </>
-    );
-  }
-}
+  );
+};
+
 
 export default ContactList;
+
 ContactList.propTypes = {
   contacts: PropTypes.array.isRequired,
   removeContact: PropTypes.func,
