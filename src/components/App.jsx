@@ -76,6 +76,7 @@ const App = () => {
   useEffect(() => {
     const myPhonebookContacts = getContactFromStorage();
     setContacts(myPhonebookContacts);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const phonebookContacts = getContactFromStorage();
